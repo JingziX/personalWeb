@@ -1,0 +1,526 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors xiangjm (xiangjm@seaway.net.cn)
+ * @date    2018-05-28 11:22:31
+ * @version $Id$
+ */
+@charset "UTF-8";
+
+
+
+@common-border: 1px solid rgba(213, 213, 213,  0.5);// 下边框半透明线
+@common-shadow: 0px 5px 3px rgba(0, 0, 0, 0.3); //投影
+
+/* ------------Pub begin------------ */
+
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+
+html {
+    color: #404040;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-size: 62.5%;
+    background-color: #eee;
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
+/* 设置文本不能被选择，ios上touch-callout系统默认菜单被禁用 */
+div {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+/* HTML5 媒体文件跟 img 保持一致 */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 1.4rem/1.5 '微软雅黑', tahoma, arial, "Hiragino Sans GB", "\5b8b\4f53";
+}
+
+input,
+select,
+textarea {
+    outline: none;
+    font-size: 100%;
+}
+
+button {
+    -webkit-appearance: none;
+    border: 0;
+    background: 0 0;
+}
+
+
+/*remove hightlight*/
+
+a:focus,
+input:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    /*-webkit-user-modify:read-write-plaintext-only; */
+}
+
+div,
+span,
+input,
+select,
+a {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    tap-highlight-color: rgba(255, 0, 0, 0);
+    outline: 0;
+}
+
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
+/* IE bug fixed: th 不继承 text-align*/
+
+th {
+    text-align: inherit;
+    font-weight: bold;
+}
+
+
+/* 去除默认边框 */
+
+fieldset,
+img {
+    border: 0;
+}
+
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+
+iframe {
+    display: block;
+}
+
+
+/* 去掉 firefox 下此元素的边框 */
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+
+/* 一致的 del 样式 */
+
+del {
+    text-decoration: line-through;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+/* 去掉列表前的标识, li 会继承 */
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+
+caption,
+th {
+    text-align: left;
+}
+
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+
+/* 统一上标和下标 */
+
+sub,
+sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: 0em;
+}
+
+
+/* 正常链接 未访问 */
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+
+/* 鼠标悬停 */
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/* 默认不显示下划线，保持页面简洁 */
+
+ins,
+a {
+    text-decoration: none;
+}
+
+
+/* 代码字体 */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+
+/* 清理浮动 */
+
+.fn-clear:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: " ";
+    font-size: 0;
+}
+
+.fn-clear {
+    zoom: 1;
+    /* for IE6 IE7 */
+    ;
+}
+
+img {
+    height: auto;
+    vertical-align: middle;
+    max-width: 100%;
+    width: 100%;
+}
+
+
+/* 隐藏, 通常用来与 JS 配合 */
+
+.fn-hide {
+    display: none;
+}
+
+
+/* 设置内联, 减少浮动带来的bug */
+
+.fn-left,
+.fn-right {
+    display: inline;
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+
+/* 单行文字溢出时出现省略号，需设定宽度 */
+
+.fn-text-overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+input::input-placeholder,
+textarea::input-placeholder {
+    color: #ccc;
+}
+
+input[type="button"],
+input[type="file"],
+input[type="date"],
+input[type="submit"] {
+    cursor: pointer;
+}
+
+/* 加载圈 */
+.ui-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-animation:spinner-spin 1s step-end infinit;
+    animation:spinner-spin 1s step-end infinite;
+}
+.ui-loading:after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url('data:image/svg+xml;charset=utf-8,<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1500800251824" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2394" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><defs><style type="text/css"></style></defs><path d="M511.103 0c27.848 0 50.307 22.558 50.307 50.307v154.812c0 27.849-22.559 50.307-50.307 50.307-27.848 0-50.307-22.558-50.307-50.307V50.406C460.696 22.558 483.255 0 511.103 0z" fill="#EAEAEA" p-id="2395"></path><path d="M776.31 76.059c24.056 13.874 32.34 44.717 18.467 68.772L717.32 278.982c-13.874 24.056-44.717 32.34-68.772 18.466-24.056-13.874-32.34-44.717-18.466-68.772l77.456-134.052c13.974-24.155 44.717-32.44 68.773-18.565z" fill="#9B9B9B" p-id="2396"></path><path d="M944 260.417c13.874 24.055 5.69 54.898-18.466 68.772l-134.051 77.456c-24.056 13.875-54.899 5.69-68.773-18.465-13.874-24.056-5.69-54.898 18.466-68.773l134.051-77.456c24.056-13.874 54.799-5.59 68.773 18.466z" fill="#9D9B9B" p-id="2397"></path><path d="M1021.456 501.27c0 27.848-22.558 50.307-50.307 50.307H816.337c-27.849 0-50.307-22.559-50.307-50.307 0-27.848 22.558-50.307 50.307-50.307h154.812c27.849-0.1 50.307 22.459 50.307 50.307z" fill="#A2A0A0" p-id="2398" class="selected"></path><path d="M944 761.687c-13.875 24.055-44.717 32.34-68.773 18.465l-134.051-77.456c-24.055-13.874-32.34-44.717-18.466-68.772 13.874-24.056 44.717-32.34 68.773-18.466l134.05 77.456c24.056 13.875 32.34 44.717 18.467 68.773z" fill="#A9A9A9" p-id="2399" class="selected"></path><path d="M776.31 965.708c-24.055 13.874-54.897 5.69-68.772-18.466l-77.456-134.05c-13.874-24.056-5.69-54.899 18.466-68.773 24.055-13.875 54.898-5.69 68.772 18.465l77.457 134.052c13.874 24.055 5.689 54.798-18.466 68.772z" fill="#B1B1B1" p-id="2400"></path><path d="M511.103 1022.104c-27.848 0-50.307-22.559-50.307-50.307V816.984c0-27.848 22.558-50.307 50.307-50.307 27.848 0 50.307 22.559 50.307 50.307v154.813c0 27.748-22.559 50.307-50.307 50.307z" fill="#B9B9B9" p-id="2401"></path><path d="M245.795 965.708c-24.055-13.874-32.34-44.717-18.466-68.772l77.457-134.052c13.874-24.055 44.717-32.34 68.772-18.465 24.055 13.874 32.34 44.717 18.466 68.772l-77.456 134.051c-13.875 24.056-44.717 32.34-68.773 18.466z" fill="#C1C0C0" p-id="2402"></path><path d="M58.044 761.687c-13.875-24.056-5.69-54.898 18.465-68.773l134.052-77.456c24.055-13.874 54.898-5.69 68.772 18.466 13.874 24.055 5.69 54.898-18.466 68.772l-134.051 77.456c-24.055 13.875-54.898 5.59-68.772-18.465z" fill="#CAC9C9" p-id="2403"></path><path d="M0.65 501.27c0-27.848 22.558-50.307 50.307-50.307h154.812c27.849 0 50.307 22.558 50.307 50.307 0 27.848-22.558 50.307-50.307 50.307H50.957C23.208 551.577 0.65 529.018 0.65 501.27z" fill="#D4D4D4" p-id="2404"></path><path d="M58.044 260.417c13.874-24.056 44.717-32.34 68.772-18.466l134.051 77.456c24.056 13.875 32.34 44.717 18.466 68.773-13.874 24.055-44.717 32.34-68.772 18.465L76.509 329.19c-24.155-13.874-32.34-44.617-18.465-68.772z" fill="#DBDBDB" p-id="2405"></path><path d="M245.795 76.059c24.056-13.874 54.898-5.69 68.773 18.466l77.456 134.05c13.874 24.056 5.69 54.899-18.466 68.773-24.055 13.875-54.898 5.69-68.772-18.465L227.329 144.83c-13.874-24.055-5.59-54.798 18.466-68.772z" fill="#E2E2E2" p-id="2406"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100%;
+}
+.ui-loading-text {
+    overflow: hidden; 
+    height: 20px;
+    margin-left: 5px;
+    vertical-align: middle; 
+    line-height: 20px;
+    display: inline-block;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+
+
+@-webkit-keyframes spinner-spin {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+
+    8.33333333% {
+        -webkit-transform: rotate(30deg)
+    }
+
+    16.66666667% {
+        -webkit-transform: rotate(60deg)
+    }
+
+    25% {
+        -webkit-transform: rotate(90deg)
+    }
+
+    33.33333333% {
+        -webkit-transform: rotate(120deg)
+    }
+
+    41.66666667% {
+        -webkit-transform: rotate(150deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg)
+    }
+
+    58.33333333% {
+        -webkit-transform: rotate(210deg)
+    }
+
+    66.66666667% {
+        -webkit-transform: rotate(240deg)
+    }
+
+    75% {
+        -webkit-transform: rotate(270deg)
+    }
+
+    83.33333333% {
+        -webkit-transform: rotate(300deg)
+    }
+
+    91.66666667% {
+        -webkit-transform: rotate(330deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes spinner-spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    8.33333333% {
+        transform: rotate(30deg)
+    }
+
+    16.66666667% {
+        transform: rotate(60deg)
+    }
+
+    25% {
+        transform: rotate(90deg)
+    }
+
+    33.33333333% {
+        transform: rotate(120deg)
+    }
+
+    41.66666667% {
+        transform: rotate(150deg)
+    }
+
+    50% {
+        transform: rotate(180deg)
+    }
+
+    58.33333333% {
+        transform: rotate(210deg)
+    }
+
+    66.66666667% {
+        transform: rotate(240deg)
+    }
+
+    75% {
+        transform: rotate(270deg)
+    }
+
+    83.33333333% {
+        transform: rotate(300deg)
+    }
+
+    91.66666667% {
+        transform: rotate(330deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
